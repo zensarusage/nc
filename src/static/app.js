@@ -19,8 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
         activityCard.className = "activity-card";
 
         const spotsLeft = details.max_participants - details.participants.length;
+        const participantCount = details.participants.length;
         const participantsList = details.participants
-          .map(email => `<li>${email}</li>`)
+          .map(email => {
+            const username = email.split('@')[0];
+            return `<li>${username}</li>`;
+          })
           .join('');
 
         activityCard.innerHTML = `
@@ -29,9 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
           <div class="participants-section">
-            <h5>Current Participants:</h5>
+            <h5>Current Participants (${participantCount}/${details.max_participants}):</h5>
             <ul class="participants-list">
-              ${participantsList || '<li class="no-participants">No participants yet</li>'}
+              ${participantsList || '<li class="no-participants">Be the first to join this activity!</li>'}
             </ul>
           </div>
         `;
