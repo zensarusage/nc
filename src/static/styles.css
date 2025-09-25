@@ -10,6 +10,8 @@
   --spacing-md: 20px;
   --spacing-lg: 30px;
   --border-radius: 5px;
+  --participant-bg: #fff8e1;
+  --participant-border: #ffd54f;
 }
 
 html {
@@ -182,6 +184,50 @@ footer {
   margin-top: var(--spacing-lg);
   padding: var(--spacing-md);
   color: #666;
+}
+
+.participant-card {
+  background-color: var(--participant-bg);
+  border: 1px solid var(--participant-border);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-sm);
+}
+
+.participant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+.participant-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.participant-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.participant-details {
+  flex: 1;
+}
+
+.participant-name {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.participant-role {
+  color: #666;
+  font-size: 0.9em;
 }
 
 /* High contrast mode support */
